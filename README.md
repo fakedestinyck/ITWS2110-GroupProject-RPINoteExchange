@@ -32,11 +32,16 @@ This is mainly intended to be a free to use site to exchange notes, so there are
 * Functional and User Friendly Website: Functional requirement as users will need to be able to easily access the information as they need, students will need help and support in a fast and efficient way and a clean and easy to use design will allow for this. 
 
 ### Project Schedule:
-Here
+[Here](Other/schedule.md)
 
 ### Site Map:
+![Site Map](/Other/Site_map.png)
 
 ### Wireframes:
+* Home page:
+![Home Page](/Other/Home_Page.png)
+* Post info page:
+![Post_an_Info](/Other/Post_an_Info.png)
 
 ## License
 

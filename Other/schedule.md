@@ -1,3 +1,5 @@
+## Project Schedule
+
 * Sep. 24: Complete Term Project Proposal
 * Sep. 31: Make any necessary revisions to proposal
 * Oct. 15: Have a working HTML/CSS site, not necessarily complete. At this point there should be a clear idea of how the final product will work and what it will look like.

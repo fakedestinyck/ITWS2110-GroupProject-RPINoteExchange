@@ -35,7 +35,7 @@ This is mainly intended to be a free to use site to exchange notes, so there are
 [Here](Other/schedule.md)
 
 ### Site Map:
-![Site Map](/Other/Site_map.png)
+![Site Map](/Other/Site_Map.png)
 
 ### Wireframes:
 * Home page:

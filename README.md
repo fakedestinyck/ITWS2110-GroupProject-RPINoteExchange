@@ -1,22 +1,21 @@
 # ITWS2110-GroupProject-RPINoteExchange
 The group project repo for ITWS2110 Fall2017 group 5
 ## Guide
-### Development pre-request
+### Prerequisite
 
-On Mac:
+Mac:
 - Lamp
 - PHP Composer (https://getcomposer.org/)
 
-On Windows:
-- xamp
+Windows:
+- Xamp
 - PHP Composer (https://getcomposer.org/)
 
-
-Requires Apache / Nginx,  MySQL,  PHP5
+Requires Apache, MySQL, PHP5
 
 ### Getting start
 
-(It's recommended to run these code in Powershell or Git Bash on Windows.)
+*It's recommended to run these code in Powershell or Git Bash on Windows.*
 
 1. Fork this repo
 

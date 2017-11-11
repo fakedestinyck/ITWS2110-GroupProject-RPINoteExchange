@@ -4,9 +4,9 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-}
+/*body {*/
+    /*padding-top: 70px; !* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. *!*/
+/*}*/
 
 footer {
     margin: 50px 0;
@@ -6594,7 +6594,6 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */
 
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome

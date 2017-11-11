@@ -17,16 +17,16 @@ Requires Apache, MySQL, PHP5
 
 ### Getting start
 
-*It's recommended to run these code in Powershell or Git Bash on Windows.*
+**Remember to substitute `[YOUR_XXX_XXX]` with your paths and names.**
 
-1. Fork this repo
+1. Fork this repo (optional)
 
-2. Clone to your disk
+2. Clone the repo to your disk
     ```
     git clone https://github.com/[YOUR_GITHUB_USERNAME]/ITWS2110-GroupProject-RPINoteExchange.git
     ```
 
-3. ```cd``` to your folder
+3. ```cd``` into your folder
     ```
     cd YOUR_FOLDER_NAME
     ```
@@ -40,7 +40,7 @@ Requires Apache, MySQL, PHP5
     ```
     mv .env.example .env
     ```
-6. Make a virtual host for this project (optional). The document root is ``` "[PROJECT_FOLDER]/public"```
+6. Make a virtual host for this project (optional). Make sure the `document root` is `"[PROJECT_FOLDER]/public"`
 
    *The following are for reference only*
     ```
@@ -57,11 +57,11 @@ Requires Apache, MySQL, PHP5
     </VirtualHost>
     ```
     
-    Also, don't forget to add [YOUR_SERVER_NAME] to your hosts file.
+        Also, don't forget to add `[YOUR_SERVER_NAME]` to your hosts file.
     
-    Save & exit, restart Apache.
+         Save & exit, restart Apache.
     
-    Create a new database [YOUR_DATABASE_NAME].
+        Create a new database and name it `[YOUR_DATABASE_NAME]`.
     
 7. Open the project
 
@@ -85,7 +85,7 @@ Requires Apache, MySQL, PHP5
     php artisan key:generate
     ```
 
-11. Open your browser, go to http://[YOUR_SERVER_NAME], enjoy!
+11. Open your browser, go to http://[YOUR_SERVER_NAME]
 
 ## License
 

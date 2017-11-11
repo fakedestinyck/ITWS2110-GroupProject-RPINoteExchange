@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Major;
+use App\Post;
+use App\Type;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        $users = User::all();
+        $majors = Major::pluck('name','id')->all();
+        $types = Type::pluck('name','id')->all();
+        return view('admin.posts.index',compact('posts','users','majors','types'));
     }
 
     /**

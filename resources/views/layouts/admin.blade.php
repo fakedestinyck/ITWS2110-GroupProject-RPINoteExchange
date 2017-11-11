@@ -109,11 +109,6 @@
                             <li>
                                 <a href="{{ route('users.index') }}">All Users</a>
                             </li>
-
-                            <li>
-                                <a href="{{ route('users.create') }}">Add a User</a>
-                            </li>
-
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -122,7 +117,7 @@
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Manage Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('users.index') }}">All Posts</a>
+                                <a href="{{ route('posts.index') }}">All Posts</a>
                             </li>
                             <li>
                                 <a href="#">Manage Majors<span class="fa arrow"></span></a>
@@ -175,7 +170,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Admin Control</h1>
+                <h1 class="page-header">@yield('h1_title')</h1>
 
                 @yield('content')
             </div>

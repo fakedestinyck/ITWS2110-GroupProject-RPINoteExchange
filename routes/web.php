@@ -20,9 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth','admin']], function(){
-    Route::resource('admin', 'AdminController');
-    Route::resource('admin/users', 'AdminUsersController');
-    Route::get('/admin', function () {
-        return view('admin.index');
+    Route::prefix('admin')->group(function () {
+        Route::get('/',function (){
+            return view('admin.index');
+        });
+        Route::resource('users', 'AdminUsersController');
+        Route::resource('posts', 'PostController');
     });
 });

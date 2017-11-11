@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
@@ -13,7 +15,8 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -56,7 +59,9 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::pluck('name','id')->all();
+        return view('admin.users.edit', compact('user','roles'));
     }
 
     /**
@@ -68,7 +73,9 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return redirect('/admin/users');
     }
 
     /**
@@ -79,6 +86,7 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+        return redirect('/admin/users');
     }
 }

@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();

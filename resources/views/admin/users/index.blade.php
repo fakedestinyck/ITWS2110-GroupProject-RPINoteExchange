@@ -32,9 +32,9 @@
                             <a href="{{ route('users.edit', $user->id) }}" class="pull-right btn btn-primary col-sm-6" style="width: 6em;">Edit User</a>
                         </td>
                     </tr>
-
                 @endforeach
             @endif
         </tbody>
     </table>
+    {{ $users->links() }}
 @endsection

@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::where('is_shown','1')->paginate(10);
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
@@ -88,5 +88,19 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Hide the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function hide($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->is_shown = 0;
+        $post->save();
+        return redirect('admin/posts');
     }
 }

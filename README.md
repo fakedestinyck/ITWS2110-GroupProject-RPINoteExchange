@@ -38,8 +38,9 @@ Requires Apache, MySQL, PHP5
 
 5. Create environment files
     ```
-    mv .env.example .env
+    cp .env.example .env
     ```
+    _Notice: `.env` and `.env.example` are hidden files._
 6. Make a virtual host for this project (optional). Make sure the `document root` is `"[PROJECT_FOLDER]/public"`
 
    *The following are for reference only*

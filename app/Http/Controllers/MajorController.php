@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MajorRequest;
 use App\Major;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class MajorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.major.create');
     }
 
     /**
@@ -34,9 +35,11 @@ class MajorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MajorRequest $request)
     {
-        //
+        $input = $request->all();
+        Major::create($input);
+        return redirect('/admin/majors');
     }
 
     /**
@@ -58,7 +61,8 @@ class MajorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $major = Major::findOrFail($id);
+        return view('admin.posts.major.edit', compact('major'));
     }
 
     /**
@@ -68,9 +72,11 @@ class MajorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MajorRequest $request, $id)
     {
-        //
+        $major = Major::findOrFail($id);
+        $major->update($request->all());
+        return redirect('/admin/majors');
     }
 
     /**

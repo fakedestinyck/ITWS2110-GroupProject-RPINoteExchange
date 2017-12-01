@@ -1,7 +1,7 @@
 # ITWS2110-GroupProject-RPINoteExchange
 The group project repo for ITWS2110 Fall2017 group 5
 
-**This project use _Laravel 5.4_**
+**This project uses _Laravel 5.4_**
 ## Guide
 ### Prerequisite
 

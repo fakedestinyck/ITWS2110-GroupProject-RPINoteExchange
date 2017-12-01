@@ -87,6 +87,15 @@ Requires Apache, MySQL, PHP5
 
 11. Open your browser, go to http://[YOUR_SERVER_NAME]
 
+### Other issues
+
+* To show debugging messages when developing, you should set `APP_DEBUG` to "true" in `.env` file.
+* You should also run these two commands under your project root directory:
+    ```
+    chmod -R 777 storage/
+    chmod -R 777 bootstrap/cache
+    ```
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

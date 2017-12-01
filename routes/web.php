@@ -26,5 +26,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
         });
         Route::resource('users', 'AdminUsersController');
         Route::resource('posts', 'PostController');
+        Route::resource('majors', 'MajorController');
     });
 });

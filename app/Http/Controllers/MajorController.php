@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MajorRequest;
 use App\Major;
-use App\Post;
-use App\Type;
-use App\User;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class MajorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('is_shown','1')->paginate(10);
-        $users = User::all();
-        $majors = Major::pluck('name','id')->all();
-        $types = Type::pluck('name','id')->all();
-        return view('admin.posts.index',compact('posts','users','majors','types'));
+        $majors = Major::all();
+        return view('admin.posts.major.index',compact('majors'));
     }
 
     /**
@@ -31,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.major.create');
     }
 
     /**
@@ -40,9 +35,11 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MajorRequest $request)
     {
-        //
+        $input = $request->all();
+        Major::create($input);
+        return redirect('/admin/majors');
     }
 
     /**
@@ -64,7 +61,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $major = Major::findOrFail($id);
+        return view('admin.posts.major.edit', compact('major'));
     }
 
     /**
@@ -74,9 +72,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MajorRequest $request, $id)
     {
-        //
+        $major = Major::findOrFail($id);
+        $major->update($request->all());
+        return redirect('/admin/majors');
     }
 
     /**
@@ -88,19 +88,5 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Hide the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function hide($id)
-    {
-        $post = Post::findOrFail($id);
-        $post->is_shown = 0;
-        $post->save();
-        return redirect('admin/posts');
     }
 }

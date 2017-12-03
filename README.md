@@ -1,7 +1,7 @@
 # ITWS2110-GroupProject-RPINoteExchange
 The group project repo for ITWS2110 Fall2017 group 5
 
-**This project use _Laravel 5.4_**
+**This project uses _Laravel 5.4_**
 ## Guide
 ### Prerequisite
 
@@ -38,8 +38,9 @@ Requires Apache, MySQL, PHP5
 
 5. Create environment files
     ```
-    mv .env.example .env
+    cp .env.example .env
     ```
+    _Notice: `.env` and `.env.example` are hidden files._
 6. Make a virtual host for this project (optional). Make sure the `document root` is `"[PROJECT_FOLDER]/public"`
 
    *The following are for reference only*
@@ -86,6 +87,15 @@ Requires Apache, MySQL, PHP5
     ```
 
 11. Open your browser, go to http://[YOUR_SERVER_NAME]
+
+### Other issues
+
+* To show debugging messages when developing, you should set `APP_DEBUG` to "true" in `.env` file.
+* You should also run these two commands under your project root directory:
+    ```
+    chmod -R 777 storage/
+    chmod -R 777 bootstrap/cache
+    ```
 
 ## License
 

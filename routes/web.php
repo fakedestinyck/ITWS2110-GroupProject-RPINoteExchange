@@ -29,9 +29,23 @@ Route::group(['middleware' => ['auth','admin']], function(){
         Route::resource('posts', 'PostController');
         Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
         Route::get('/posts/{post}/hide', function () {
-            return abort(403);;
+            return abort(405);
         })->name('posts.hide');
 
         Route::resource('majors', 'MajorController');
+    });
+});
+
+Route::group(['middleware' => ['auth','notBlocked']], function(){
+    Route::prefix('user')->group(function () {
+        Route::get('/',function (){
+            return view('user.index');
+        });
+//
+//        Route::resource('posts', 'PostController');
+//        Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
+//        Route::get('/posts/{post}/hide', function () {
+//            return abort(403);;
+//        })->name('posts.hide');
     });
 });

@@ -7,6 +7,7 @@ use App\Post;
 use App\Type;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -21,7 +22,11 @@ class PostController extends Controller
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
-        return view('admin.posts.index',compact('posts','users','majors','types'));
+        if (Auth::user()->isAdmin) {
+            return view('admin.posts.index',compact('posts','users','majors','types'));
+        } else {
+            return view('user.posts.index',compact('posts','users','majors','types'));
+        }
     }
 
     /**

@@ -2,7 +2,7 @@
 The group project repo for ITWS2110 Fall2017 group 5
 
 **This project uses _Laravel 5.4_**
-## Guide
+## Installation Guide
 ### Prerequisite
 
 Mac:
@@ -86,7 +86,9 @@ Requires Apache, MySQL, PHP5
     php artisan key:generate
     ```
 
-11. Open your browser, go to http://[YOUR_SERVER_NAME]
+### Done!
+    
+Open your browser, go to `http://[YOUR_SERVER_NAME]`
 
 ### Other issues
 
@@ -99,4 +101,4 @@ Requires Apache, MySQL, PHP5
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](LICENSE).

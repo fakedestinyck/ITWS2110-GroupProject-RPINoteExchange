@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\File;
+use App\Http\Requests\PostRequest;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -29,12 +31,21 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        $input = $request->all();
+
+        if ($file = $request->file('file_id')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $myFile = File::create(['file' => $name]);
+            $input['file_id'] = $myFile->id;
+        }
+        Post::create($input);
+        return redirect('/user/posts');
     }
 
     /**
@@ -62,13 +73,22 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\PostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        if ($file = $request->file('file_id')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $myFile = File::create(['file' => $name]);
+            $input['file_id'] = $myFile->id;
+        }
+
+        $post->update($input);
+        return redirect('/user/posts');
     }
 
     /**

@@ -114,7 +114,7 @@
                                 <a href="{{ route('user.posts.index') }}">See All Posts</a>
                             </li>
                             <li>
-                                <a href="{{ route('majors.index') }}">Manage My Posts</a>
+                                <a href="{{ route('posts.manage') }}">Manage My Posts</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

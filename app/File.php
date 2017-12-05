@@ -9,7 +9,6 @@ class File extends Model
     protected $uploads = 'files/';
     protected $fillable = ['file'];
     public function getFileAttribute($file){
-
         return $this->uploads . $file;
     }
 }

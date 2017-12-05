@@ -114,6 +114,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'major_name' => 'major name',
+    ],
 
 ];

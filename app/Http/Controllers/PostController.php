@@ -108,4 +108,8 @@ class PostController extends Controller
         $post->save();
         return redirect('admin/posts');
     }
+
+    public function manage() {
+        return view('user.posts.manage');
+    }
 }

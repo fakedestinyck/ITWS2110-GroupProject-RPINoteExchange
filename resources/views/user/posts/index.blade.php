@@ -2,7 +2,11 @@
 
 @section('title','User')
 
+<<<<<<< HEAD
 @section('h1_title','My Posts')
+=======
+@section('h1_title','All Posts')
+>>>>>>> f6624f66161fd7b6f0dbaca0781b4e325b9c4731
 
 @section('content')
     <div class="col-sm-9 pull-right">

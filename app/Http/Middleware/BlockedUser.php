@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class BlockedUser
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (Auth::check()){
-            if (Auth::user()->isAdmin()){
-                return $next($request);
+            if (Auth::user()->isBlocked()){
+                return abort(412);
             } else {
-                return abort(401);
+                return $next($request);
             }
         }
     }

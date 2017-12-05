@@ -120,16 +120,7 @@
                                 <a href="{{ route('posts.index') }}">All Posts</a>
                             </li>
                             <li>
-                                <a href="#">Manage Majors<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">All Majors</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Add a Major</a>
-                                    </li>
-                                    <li>
-                                </ul>
+                                <a href="{{ route('majors.index') }}">Manage Majors</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

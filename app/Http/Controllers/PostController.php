@@ -7,6 +7,7 @@ use App\Post;
 use App\Type;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -17,11 +18,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::where('is_shown','1')->paginate(10);
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
-        return view('admin.posts.index',compact('posts','users','majors','types'));
+        if (Auth::user()->isAdmin()) {
+            return view('admin.posts.index',compact('posts','users','majors','types'));
+        } else {
+            return view('user.posts.index',compact('posts','users','majors','types'));
+        }
     }
 
     /**
@@ -88,5 +93,19 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Hide the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function hide($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->is_shown = 0;
+        $post->save();
+        return redirect('admin/posts');
     }
 }

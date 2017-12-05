@@ -26,7 +26,9 @@ Route::group(['middleware' => ['auth','admin']], function(){
         });
         Route::resource('users', 'AdminUsersController');
 
-        Route::resource('posts', 'PostController');
+        Route::resource('posts', 'PostController', ['only' => [
+            'index'
+        ]]);
         Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
         Route::get('/posts/{post}/hide', function () {
             return abort(405);
@@ -38,10 +40,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
 Route::group(['middleware' => ['auth','notBlocked']], function(){
     Route::prefix('user')->group(function () {
-        Route::get('/',function (){
+        Route::get('/', function () {
             return view('user.index');
         });
-        Route::resource('posts', 'PostController');
+        Route::resource('posts', 'PostController', ['names' => [
+            'index' => 'user.posts.index'
+        ]]);
 //        Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
 //        Route::get('/posts/{post}/hide', function () {
 //            return abort(403);;

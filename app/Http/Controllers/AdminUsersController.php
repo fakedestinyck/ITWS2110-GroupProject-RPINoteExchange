@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\EditUserRequest;
 use App\User;
 use App\Role;

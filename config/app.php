@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        DevDojo\Chatter\ChatterServiceProvider::class,
 
         /*
          * Application Service Providers...

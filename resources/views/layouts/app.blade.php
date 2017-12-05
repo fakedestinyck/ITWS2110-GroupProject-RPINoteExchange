@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -29,7 +30,12 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'RPI Note Exchange') }}
+                    </a>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/forums') }}">
+                        {{ 'Forums' }}
                     </a>
                 </div>
 
@@ -76,5 +82,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('js')
 </body>
 </html>

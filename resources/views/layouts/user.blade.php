@@ -111,7 +111,7 @@
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('posts.index') }}">See All Posts</a>
+                                <a href="{{ route('user.posts.index') }}">See All Posts</a>
                             </li>
                             <li>
                                 <a href="{{ route('majors.index') }}">Manage My Posts</a>

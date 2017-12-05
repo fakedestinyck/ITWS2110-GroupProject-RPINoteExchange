@@ -122,18 +122,6 @@
                             <li>
                                 <a href="{{ route('majors.index') }}">Manage Majors</a>
                             </li>
-                            {{--<li>--}}
-                                {{--<a href="#">Manage Majors<span class="fa arrow"></span></a>--}}
-                                {{--<ul class="nav nav-third-level">--}}
-                                    {{--<li>--}}
-                                        {{--<a href={{ route('majors.index') }}>All Majors</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                        {{--<a href="#">Add a Major</a>--}}
-                                    {{--</li>--}}
-                                    {{--<li>--}}
-                                {{--</ul>--}}
-                            {{--</li>--}}
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>

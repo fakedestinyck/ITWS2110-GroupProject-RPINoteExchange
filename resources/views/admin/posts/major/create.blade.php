@@ -12,7 +12,7 @@
         {!! Form::open(['method' => 'POST', 'action' => 'MajorController@store']) !!}
 
         <div class = "form-group">
-            {!! Form::label('major_name', 'Major name:')!!}
+            {!! Form::label('name', 'Major name:')!!}
             {!! Form::text('major_name', null, ['class' => 'form-control'])!!}
         </div>
 

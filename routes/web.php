@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
 Route::group(['middleware' => ['auth','notBlocked']], function(){
     Route::prefix('user')->group(function () {
-        Route::get('/',function (){
+        Route::get('/', function () {
             return view('user.index');
         });
         Route::resource('posts', 'PostController');

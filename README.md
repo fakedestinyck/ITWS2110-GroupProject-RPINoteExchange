@@ -1,6 +1,7 @@
 # ITWS2110-GroupProject-RPINoteExchange
 The group project repo for ITWS2110 Fall2017 group 5
 
+
 **This project uses _Laravel 5.4_**
 ## Installation Guide
 ### Prerequisite
@@ -40,7 +41,9 @@ Requires Apache, MySQL, PHP5
     ```
     cp .env.example .env
     ```
+
     _Notice: `.env` and `.env.example` are hidden files._
+    
 6. Make a virtual host for this project (optional). Make sure the `document root` is `"[PROJECT_FOLDER]/public"`
 
    *The following are for reference only*
@@ -85,7 +88,7 @@ Requires Apache, MySQL, PHP5
     ```
     php artisan key:generate
     ```
-
+    
 ### Done!
     
 Open your browser, go to `http://[YOUR_SERVER_NAME]`

@@ -30,7 +30,12 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'RPI Note Exchange') }}
+                    </a>
+
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/forums') }}">
+                        {{ 'Forums' }}
                     </a>
                 </div>
 

@@ -22,7 +22,7 @@ class PostController extends Controller
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
-        if (Auth::user()->isAdmin) {
+        if (Auth::user()->isAdmin()) {
             return view('admin.posts.index',compact('posts','users','majors','types'));
         } else {
             return view('user.posts.index',compact('posts','users','majors','types'));

@@ -13,7 +13,7 @@
     {!! Form::hidden('major_id', $major->id) !!}
 
     <div class = "form-group">
-        {!! Form::label('name', 'Major name:')!!}
+        {!! Form::label('major_name', 'Major name:')!!}
         {!! Form::text('major_name',$major->name , ['class' => 'form-control'])!!}
     </div>
 

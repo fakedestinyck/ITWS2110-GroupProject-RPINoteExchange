@@ -49,5 +49,6 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);
+        Route::patch('/posts', 'PostController@filter');
     });
 });

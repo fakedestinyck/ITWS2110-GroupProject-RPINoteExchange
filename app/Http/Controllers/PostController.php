@@ -109,6 +109,20 @@ class PostController extends Controller
         return redirect('admin/posts');
     }
 
+    public function filter(Request $request)
+    {
+      $posts = Post::where('is_shown','1')->where('major_id',$request->courses)->where('material_type_id', $request->type)->where('share_or_ask',$request->category)->where('free_or_paid',$request->paid)->paginate(10);
+      $users = User::all();
+      $majors = Major::pluck('name','id')->all();
+      $types = Type::pluck('name','id')->all();
+      if (Auth::user()->isAdmin()) {
+          return view('admin.posts.index',compact('posts','users','majors','types'));
+      } else {
+          return view('user.posts.index',compact('posts','users','majors','types'));
+      }
+      return abort(404);
+    }
+    
     public function manage() {
         return view('user.posts.manage');
     }

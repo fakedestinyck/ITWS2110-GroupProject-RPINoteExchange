@@ -38,6 +38,7 @@ class MajorController extends Controller
     public function store(MajorRequest $request)
     {
         $input = $request->all();
+        $input['name'] = $request->major_name;
         Major::create($input);
         return redirect('/admin/majors');
     }

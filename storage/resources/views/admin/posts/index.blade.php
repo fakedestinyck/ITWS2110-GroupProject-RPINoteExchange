@@ -1,8 +1,8 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 
-@section('title','User')
+@section('title','Admin')
 
-@section('h1_title','My Posts')
+@section('h1_title','All Posts')
 
 @section('content')
     <div class="col-sm-9 pull-right">
@@ -14,8 +14,7 @@
                     @else
                         <h3>Ask for {{ ucfirst($types[$post->material_type_id] ) }}</h3>
                     @endif
-                    <p>Posted by {{ $users->find($post->user_id)->name }} at {{ $post->created_at }}</p>
-                    <h4>{{ $post->content }}</h4>
+                    <p>{{ $post->content }}</p>
                     <input type="checkbox" disabled
                     @if( $post->free_or_paid == 0 )
                         >
@@ -23,15 +22,6 @@
                         checked>
                     @endif
                     Paid
-                    {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
-
-                    <div class = "form-group">
-                        {!! Form::submit('Delete this post', ['class' => 'btn btn-danger btn-block col-sm-6', 'style' => 'width: 10em'])!!}
-                    </div>
-
-                    {!! Form::close() !!}
-
-                    <p><br><br><br></p>
                 @endforeach
             @endif
         </div>

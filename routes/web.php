@@ -45,8 +45,9 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         Route::get('/', function () {
             return view('user.index');
         });
-        
+
         Route::get('/posts/manage', 'PostController@manage')->name('posts.manage');
+
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
 use App\Major;
 use App\Post;
 use App\Type;
@@ -52,10 +53,18 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $input = $request->all();
+
+        if ($up_file = $request->file('file_id')) {
+            $name = time() . $up_file->getClientOriginalName();
+            $up_file->move('files', $name);
+            $file = File::create(['file' => $name]);
+            $input['file_id'] = $file->id;
+
+        }
+
         $input['user_id'] = Auth::User()->id;
         Post::create($input);
         return redirect('user/posts');
-        //
     }
 
     /**

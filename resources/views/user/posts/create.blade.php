@@ -11,7 +11,7 @@
 
         @include('includes.form_error')
 
-        {!! Form::open(['method' => 'POST', 'action' => 'PostController@store']) !!}
+        {!! Form::open(['method' => 'POST', 'action' => 'PostController@store', 'files' => true]) !!}
 
         <div class = "form-group">
             {!! Form::label('name', 'Major')!!}
@@ -39,7 +39,12 @@
         </div>
 
         <div class = "form-group">
-            {!! Form::submit('Add', ['class' => 'btn btn-primary'])!!}
+            {!! Form::label('file_id', 'File(s) (?):')!!}
+            {!! Form::file('file_id', null, ['class' => 'form-control'])!!}
+        </div>
+
+        <div class = "form-group">
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
         </div>
 
 

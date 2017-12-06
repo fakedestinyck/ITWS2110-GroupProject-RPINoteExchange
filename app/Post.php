@@ -13,7 +13,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'major_id', 'material_type_id', 'share_or_ask', 'free_or_paid', 'content', 'file_id', 'is_shown'
+        'user_id', 'major_id', 'material_type_id', 'share_or_ask', 'free_or_paid', 'content', 'file_id', 'is_shown', 'requestedBy'
     ];
 
     public function file(){

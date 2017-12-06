@@ -5,6 +5,26 @@
 @section('h1_title','All Posts')
 
 @section('content')
+    <div class="col-sm-2">
+        <h3 style="text-align: center;">Filter</h3>
+        {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@filter']]) !!}
+        @if($majors)
+        {!! Form::select('courses', $majors, null, ['class' => 'form-control'])!!}
+        @endif
+        <p></p>
+        {!! Form::select('category', array(0 => 'Share', 1 => 'Ask'), null, ['class' => 'form-control'])!!}
+        <p></p>
+        {!! Form::select('type', $types, null, ['class' => 'form-control'])!!}
+        <p></p>
+        {!! Form::select('paid', array(0 => 'Free', 1 => 'Paid'), null, ['class' => 'form-control'])!!}
+        <p></p>
+        <div class = "form-group">
+          {!! Form::submit('Update', ['class' => 'btn btn-primary btn-block col-sm-6'])!!}
+          {!! Form::close() !!}
+        </div>
+
+    </div>
+
     <div class="col-sm-9 pull-right">
         <div>
             @if($posts)
@@ -24,10 +44,12 @@
                         checked>
                     @endif
                     Paid
-                    {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
+
+                    {{--TODO: view file option--}}
+                    {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@askFor', $post->id]]) !!}
 
                     <div class = "form-group">
-                        {!! Form::submit('Delete this post', ['class' => 'btn btn-danger btn-block col-sm-6', 'style' => 'width: 10em'])!!}
+                        {!! Form::submit('Ask for this item', ['class' => 'btn btn-primary btn-block col-sm-6', 'style' => 'width: 10em'])!!}
                     </div>
 
                     {!! Form::close() !!}

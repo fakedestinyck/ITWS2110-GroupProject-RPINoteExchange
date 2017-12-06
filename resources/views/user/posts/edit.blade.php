@@ -2,7 +2,7 @@
 
 @section('title','User')
 
-@section('h1_title','Create New Post')
+@section('h1_title','Edit Post')
 
 @section('content')
 
@@ -11,7 +11,9 @@
 
         @include('includes.form_error')
 
-        {!! Form::open(['method' => 'POST', 'action' => 'PostController@store', 'files' => true]) !!}
+        {!! Form::model($post,['method' => 'PATCH', 'action' => ['PostController@update', $post->id], 'files' => true]) !!}
+
+        {!! Form::hidden('post_id', $post->id) !!}
 
         <div class = "form-group">
             {!! Form::label('name', 'Major')!!}
@@ -46,6 +48,8 @@
         <div class = "form-group">
             {!! Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
         </div>
+
+        {{--TODO: delete post option--}}
 
 
     </div>

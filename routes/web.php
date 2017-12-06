@@ -45,9 +45,23 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         Route::get('/', function () {
             return view('user.index');
         });
+
         Route::get('/posts/manage', 'PostController@manage')->name('posts.manage');
+
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);
+
+        Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
+        Route::get('/posts/{post}/hide', function () {
+            return abort(405);
+        })->name('posts.hide');
+
+        Route::patch('/posts/{post}/askFor', 'PostController@askFor')->name('posts.askFor');
+        Route::get('/posts/{post}/askFor', function () {
+            return abort(405);
+        })->name('posts.askFor');
+
+        Route::patch('/posts', 'PostController@filter');
     });
 });

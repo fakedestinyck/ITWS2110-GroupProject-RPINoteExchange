@@ -23,6 +23,7 @@
                         checked>
                     @endif
                     Paid
+
                     {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
 
                     <div class = "form-group">

@@ -8,3 +8,4 @@ Homestead.yaml
 .env
 webpack.mix.js
 .DS_Store
+composer.lock

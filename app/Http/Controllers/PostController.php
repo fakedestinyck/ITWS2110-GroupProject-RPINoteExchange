@@ -104,9 +104,19 @@ class PostController extends Controller
     public function hide($id)
     {
         $post = Post::findOrFail($id);
-        $post->is_shown = 0;
-        $post->save();
-        return redirect('admin/posts');
+        if (!Auth::user()->isAdmin()) {
+            if ($id != Auth::user()->id) {
+                return abort(401);
+            }
+            $post->is_shown = 0;
+            $post->save();
+            return redirect('user/posts/manage');
+        } else {
+            $post->is_shown = 0;
+            $post->save();
+            return redirect('admin/posts');
+        }
+
     }
 
     public function manage() {

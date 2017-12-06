@@ -49,5 +49,9 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);
+        Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
+        Route::get('/posts/{post}/hide', function () {
+            return abort(405);
+        })->name('posts.hide');
     });
 });

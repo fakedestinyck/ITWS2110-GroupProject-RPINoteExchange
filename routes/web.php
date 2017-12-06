@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/intro', function () {return view('intro');})->name('intro');
+Route::get('/aboutus', function () {return view('aboutus');})->name('aboutus');
 
 Route::group(['middleware' => ['auth','admin']], function(){
     Route::prefix('admin')->group(function () {
@@ -43,13 +45,9 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         Route::get('/', function () {
             return view('user.index');
         });
+        Route::get('/posts/manage', 'PostController@manage')->name('posts.manage');
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);
-        Route::get('/posts/manage', 'PostController@manage')->name('posts.manage');
-//        Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
-//        Route::get('/posts/{post}/hide', function () {
-//            return abort(403);;
-//        })->name('posts.hide');
     });
 });

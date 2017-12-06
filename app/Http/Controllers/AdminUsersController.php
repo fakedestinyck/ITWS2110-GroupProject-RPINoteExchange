@@ -67,7 +67,7 @@ class AdminUsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\EditUserRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\PostRequest;
 use App\Post;
 
@@ -32,7 +33,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\PostRequest  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
@@ -66,11 +67,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Http\Requests\PostRequest  $request
+     * @param  \App\Http\Requests\EditUserRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(EditUserRequest $request, $id)
     {
         $user = User::findOrFail($id);
         $user->update($request->all());

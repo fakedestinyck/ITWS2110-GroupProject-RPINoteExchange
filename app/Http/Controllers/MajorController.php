@@ -32,7 +32,7 @@ class MajorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\MajorRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(MajorRequest $request)
@@ -69,7 +69,7 @@ class MajorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\MajorRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

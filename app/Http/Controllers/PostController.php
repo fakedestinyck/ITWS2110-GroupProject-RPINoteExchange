@@ -47,7 +47,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
@@ -86,19 +86,34 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $majors = Major::pluck('name','id')->all();
+        $types = Type::pluck('name','id')->all();
+        return view('user.posts.edit',compact('post','majors','types'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $input = $request->all();
+        if ($up_file = $request->file('file_id')) {
+            $name = time() . $up_file->getClientOriginalName();
+            $up_file->move('files', $name);
+            $file = File::create(['file' => $name]);
+            $input['file_id'] = $file->id;
+
+        }
+
+        $input['user_id'] = Auth::User()->id;
+        $post->update($input);
+        return redirect('user/posts/manage');
     }
 
     /**

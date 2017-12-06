@@ -16,7 +16,7 @@
         <p></p>
         {!! Form::select('type', $types, null, ['class' => 'form-control'])!!}
         <p></p>
-        {!! Form::select('paid', array(1 => 'Paid', 0 => 'Free'), null, ['class' => 'form-control'])!!}
+        {!! Form::select('paid', array(0 => 'Free', 1 => 'Paid'), null, ['class' => 'form-control'])!!}
         <p></p>
         <div class = "form-group">
           {!! Form::submit('Update', ['class' => 'btn btn-primary btn-block col-sm-6'])!!}
@@ -45,6 +45,7 @@
                     @endif
                     Paid
 
+                    {{--TODO: view file option--}}
                     {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@askFor', $post->id]]) !!}
 
                     <div class = "form-group">

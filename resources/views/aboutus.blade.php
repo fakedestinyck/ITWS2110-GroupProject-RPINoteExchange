@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>RPI Note Exchange</title>
+        <title>RPI Note Exchange - About Us</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -41,12 +41,22 @@
                 top: 18px;
             }
 
+            .top-left {
+                position: absolute;
+                left: 10px;
+                top: 18px;
+            }
+
             .content {
                 text-align: center;
             }
 
             .title {
-                font-size: 84px;
+                color: #636b6f;
+                font-weight: 600;
+                font-size: 30px;
+                text-decoration: none;
+                text-transform: uppercase;
             }
 
             .links > a {
@@ -68,6 +78,9 @@
             .info {
                 font-size:25px;
             }
+            .team {
+                font-size:18px;
+            }
         </style>
     </head>
     <body>
@@ -75,24 +88,32 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/intro') }}">Intro</a>
+                        <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/home') }}"> Home</a>
+
                     @else
+                        <a href="{{ url('/intro') }}">Intro</a>
+                        <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
+
+
                     @endif
+                </div>
+                <div class="top-left title">
+                    <a href="{{ url('/') }}">RPI NOTE EXCHANGE</a>
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    RPI NOTE EXCHANGE
-                </div>
-
-                <div class="links">
-                    <a href="{{ url('/intro') }}">Intro</a>
-                    <a href="{{ url('/aboutus') }}">About Us</a>
-                    <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
-                </div>
+                <h2 class="intro">About Us</h2>
+                <p class="info">Meet the Team:</p>
+                <p class="team">Stephanie Tan</p>
+                <p class="team">HaoChang Qian</p>
+                <p class="team">Osama Minhas</p>
+                <p class="team">Omer Osman</p>
+                <p class="team">Silei Tian</p>
             </div>
         <div>
     </body>

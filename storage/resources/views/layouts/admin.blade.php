@@ -35,7 +35,7 @@
 
 </head>
 
-<body id="user-page">
+<body id="admin-page">
 
 <div id="wrapper">
 
@@ -48,7 +48,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ config('app.url') }}/user">User Page</a>
+            <a class="navbar-brand" href="{{ config('app.url') }}/admin">Admin Page</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -98,27 +98,61 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/user"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Manage My Profile</a>
-                    </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Posts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Manage Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{ route('user.posts.index') }}">See All Posts</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('posts.manage') }}">Manage My Posts</a>
+                                <a href="{{ route('users.index') }}">All Users</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Manage Posts<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{ route('posts.index') }}">All Posts</a>
+                            </li>
+                            <li>
+                                <a href="#">Manage Majors<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">All Majors</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Add a Major</a>
+                                    </li>
+                                    <li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Announcement<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/announce">View All Announcements</a>
+                            </li>
+
+                            <li>
+                                <a href="/announce/create">Publish a New Announcement</a>
+                            </li>
+
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+
+
+
 
                 </ul>
 

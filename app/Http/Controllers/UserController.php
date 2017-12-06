@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.profile.index', compact('user'));//
     }
 
     /**
@@ -36,16 +37,7 @@ class UserController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $input = $request->all();
 
-        if ($file = $request->file('file_id')) {
-            $name = time() . $file->getClientOriginalName();
-            $file->move('images', $name);
-            $myFile = File::create(['file' => $name]);
-            $input['file_id'] = $myFile->id;
-        }
-        Post::create($input);
-        return redirect('/user/posts');
     }
 
     /**
@@ -67,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('user.profile.edit', compact('user'));//
     }
 
     /**
@@ -79,16 +72,9 @@ class UserController extends Controller
      */
     public function update(PostRequest $request, $id)
     {
-        $post = Post::findOrFail($id);
-        if ($file = $request->file('file_id')) {
-            $name = time() . $file->getClientOriginalName();
-            $file->move('images', $name);
-            $myFile = File::create(['file' => $name]);
-            $input['file_id'] = $myFile->id;
-        }
-
-        $post->update($input);
-        return redirect('/user/posts');
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return redirect('/user');
     }
 
     /**

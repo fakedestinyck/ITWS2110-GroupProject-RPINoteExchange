@@ -122,4 +122,8 @@ class PostController extends Controller
       }
       return abort(404);
     }
+    
+    public function manage() {
+        return view('user.posts.manage');
+    }
 }

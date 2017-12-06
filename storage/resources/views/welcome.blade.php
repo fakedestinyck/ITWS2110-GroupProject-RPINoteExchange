@@ -62,12 +62,6 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-            .intro {
-                font-size:40px;
-            }
-            .info {
-                font-size:25px;
-            }
         </style>
     </head>
     <body>
@@ -89,11 +83,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/intro') }}">Intro</a>
-                    <a href="{{ url('/aboutus') }}">About Us</a>
+                    <a href="#">Intro</a>
+                    <a href="#">About us</a>
                     <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
                 </div>
             </div>
-        <div>
+        </div>
     </body>
 </html>

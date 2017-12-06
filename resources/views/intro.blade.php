@@ -87,8 +87,11 @@
                     @if (Auth::check())
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
-                        <a href="{{ url('/home') }}"> Home</a>
-
+                        @if (Auth::User()->isAdmin())
+                            <a href="{{ url('/admin') }}">Dashboard</a>
+                        @else
+                            <a href="{{ url('/user') }}">Dashboard</a>
+                        @endif
                     @else
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>

@@ -30,14 +30,12 @@ class PostRequest extends FormRequest
             $id=' ';
         }
         return [
-            'user_id' => 'required',
             'major_id' => 'required',
             'material_type_id' => 'required|digits:1',
             'share_or_ask' => 'required|digits:1',
             'free_or_paid' => 'required|digits:1',
             'content' => 'required|max:255',
             'file_id' => 'max:255',
-            'is_shown' => 'required|digits:1'
         ];
     }
 }

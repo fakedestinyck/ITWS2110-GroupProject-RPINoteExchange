@@ -2,7 +2,7 @@
 
 @section('title','User')
 
-@section('h1_title','My Posts')
+@section('h1_title','All Posts')
 
 @section('content')
     <div class="col-sm-2">
@@ -37,6 +37,7 @@
                     @else
                         <h3>Ask for {{ ucfirst($types[$post->material_type_id] ) }}</h3>
                     @endif
+                    <p>{{ App\Major::find($post->major_id)->name }}</p>
                     <p>Posted by {{ $users->find($post->user_id)->name }} at {{ $post->created_at }}</p>
                     <h4>{{ $post->content }}</h4>
                     <input type="checkbox" disabled

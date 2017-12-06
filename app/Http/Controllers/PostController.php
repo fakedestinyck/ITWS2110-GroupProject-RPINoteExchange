@@ -8,6 +8,7 @@ use App\Type;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -36,7 +37,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Post::where('is_shown','1')->paginate(10);
+        $majors = Major::pluck('name','id')->all();
+        $types = Type::pluck('name','id')->all();
+        return view('user.posts.create',compact('majors','types','posts'));
     }
 
     /**
@@ -45,8 +49,12 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
+        $input = $request->all();
+        $input['user_id'] = Auth::User()->id;
+        Post::create($input);
+        return redirect('user/posts');
         //
     }
 
@@ -124,6 +132,8 @@ class PostController extends Controller
     }
     
     public function manage() {
-        return view('user.posts.manage');
+        $posts = Post::where('is_shown','1')->where('user_id' , Auth::User()->id)->paginate(10);
+        $types = Type::pluck('name','id')->all();
+        return view('user.posts.manage',compact('posts','types'));
     }
 }

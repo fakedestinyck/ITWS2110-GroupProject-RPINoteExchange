@@ -57,6 +57,11 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
             return abort(405);
         })->name('posts.hide');
 
+        Route::patch('/posts/{post}/askFor', 'PostController@askFor')->name('posts.askFor');
+        Route::get('/posts/{post}/askFor', function () {
+            return abort(405);
+        })->name('posts.askFor');
+
         Route::patch('/posts', 'PostController@filter');
         Route::get('/profile','UserController@index')->name('user.profile.index');
         Route::get('/profile/edit','UserController@edit')->name('user.profile.edit');

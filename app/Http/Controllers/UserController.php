@@ -34,7 +34,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  App\Http\Requests\PostRequest  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
@@ -56,20 +56,18 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit()
     {
         $user = Auth::User();
-        return view('user.profile.edit', compact('user'));//
+        return view('user.profile.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  App\Http\Requests\PostRequest  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\EditUserRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function update(EditUserRequest $request)

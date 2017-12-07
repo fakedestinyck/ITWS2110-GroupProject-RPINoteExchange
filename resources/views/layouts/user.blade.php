@@ -151,10 +151,56 @@
 
 <!-- /#wrapper -->
 
+<!-- model -->
+<div class="modal fade" id="new-ask-for-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">New Request</h4>
+            </div>
+            <div class="modal-body">
+                <p><span id="from"></span> asked for one of your item</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="ask-for-button" type="button">Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="new-ask-for-form" method="get">
+    {{ csrf_field() }}
+</form>
+<!-- /model -->
+
 <!-- jQuery -->
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <script src="{{asset('js/libs.js')}}"></script>
+<script language="javascript">
+    Pusher.logToConsole = true;
+    var pusher = new Pusher('e816d539e39837d20cf2', {
+        cluster: "us2",
+        encrypted: true
+    });
+    var askForChannel = pusher.subscribe('new-ask-for-channel');
+    askForChannel.bind('App\\Events\\NewAskRequest', function(data){
+        console.log(data.destinationUserId);
+        if (data.destinationUserId == '{{ Auth::user()->id }}') {
+
+            $('#from').html(data.fromName);
+            $('#new-ask-for-form').attr('action', '{{ route('posts.manage') }}');
+            $('#new-ask-for-modal').modal('show');
+        }
+    });
+    $('#ask-for-button').on('click', function(){
+        $('#new-ask-for-form').submit();
+    });
+</script>
 
 @yield('footer')
+
 </body>
 
 </html>

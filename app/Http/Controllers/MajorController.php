@@ -75,8 +75,10 @@ class MajorController extends Controller
      */
     public function update(MajorRequest $request, $id)
     {
+        $input = $request->all();
         $major = Major::findOrFail($id);
-        $major->update($request->all());
+        $input['name'] = $request->major_name;
+        $major->update($input);
         return redirect('/admin/majors');
     }
 

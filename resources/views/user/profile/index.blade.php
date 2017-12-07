@@ -5,7 +5,7 @@
 @section('h1_title','Profile Information')
 
 @section('content')
-    <div class="col-sm-9 pull-right">
+    <div class="col-sm-12">
         <div>
             <p>Name: {{ $user->name }}</p>
 

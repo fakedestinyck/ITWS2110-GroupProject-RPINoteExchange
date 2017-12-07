@@ -24,17 +24,17 @@
         </div>
 
         <div class = "form-group">
-            {!! Form::label('material_type_id', 'Free or Paid:')!!}
+            {!! Form::label('material_type_id', 'Books/Notes/Ideas?')!!}
             {!! Form::select('material_type_id', $types, null, ['class' => 'form-control'])!!}
         </div>
 
         <div class = "form-group">
-            {!! Form::label('free_or_paid', 'Free or Paid:')!!}
+            {!! Form::label('free_or_paid', 'Free or Paid?')!!}
             {!! Form::select('free_or_paid', array(0 => 'Free', 1=>'Paid'), null, ['class' => 'form-control'])!!}
         </div>
 
         <div class = "form-group">
-            {!! Form::label('content', 'Description:')!!}
+            {!! Form::label('content', 'Content:')!!}
             {!! Form::text('content', null, ['class' => 'form-control'])!!}
         </div>
 

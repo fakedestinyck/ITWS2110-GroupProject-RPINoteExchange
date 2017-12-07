@@ -26,17 +26,17 @@
         </div>
 
         <div class = "form-group">
-            {!! Form::label('material_type_id', 'Free or Paid:')!!}
+            {!! Form::label('material_type_id', 'Books, Notes, or Ideas?')!!}
             {!! Form::select('material_type_id', $types, null, ['class' => 'form-control'])!!}
         </div>
 
         <div class = "form-group">
-            {!! Form::label('free_or_paid', 'Free or Paid:')!!}
+            {!! Form::label('free_or_paid', 'Free or Paid?')!!}
             {!! Form::select('free_or_paid', array(0 => 'Free', 1=>'Paid'), null, ['class' => 'form-control'])!!}
         </div>
 
         <div class = "form-group">
-            {!! Form::label('content', 'Description:')!!}
+            {!! Form::label('content', 'Content:')!!}
             {!! Form::text('content', null, ['class' => 'form-control'])!!}
         </div>
 
@@ -49,7 +49,13 @@
             {!! Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
         </div>
 
-        {{--TODO: delete post option--}}
+        {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
+
+        <div class = "form-group">
+            {!! Form::submit('Delete this post', ['class' => 'btn btn-danger btn-block col-sm-6', 'style' => 'width: 10em'])!!}
+        </div>
+
+        {!! Form::close() !!}
 
 
     </div>

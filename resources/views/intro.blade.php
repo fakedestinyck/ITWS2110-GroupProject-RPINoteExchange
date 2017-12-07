@@ -85,6 +85,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
+                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
                         @if (Auth::User()->isAdmin())
@@ -93,16 +94,12 @@
                             <a href="{{ url('/user') }}">Dashboard</a>
                         @endif
                     @else
+                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
-
-
                     @endif
-                </div>
-                <div class="top-left title">
-                    <a href="{{ url('/') }}">RPI NOTE EXCHANGE</a>
                 </div>
             @endif
 

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\File;
 use App\Http\Requests\EditUserRequest;
-use App\Http\Requests\PostRequest;
 use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::User();
         return view('user.profile.index', compact('user'));//
     }
 
@@ -55,27 +56,25 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $user = User::findOrFail($id);
-        return view('user.profile.edit', compact('user'));//
+        $user = Auth::User();
+        return view('user.profile.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\EditUserRequest  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EditUserRequest $request, $id)
+    public function update(EditUserRequest $request)
     {
-        $user = User::findOrFail($id);
+        $user = Auth::User();
         $user->update($request->all());
-        return redirect('/user');
+        return redirect('/user/profile');
     }
 
     /**

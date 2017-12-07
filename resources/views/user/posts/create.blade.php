@@ -24,7 +24,7 @@
         </div>
 
         <div class = "form-group">
-            {!! Form::label('material_type_id', 'Books/Notes/Ideas?')!!}
+            {!! Form::label('material_type_id', 'Books, Notes or Ideas?')!!}
             {!! Form::select('material_type_id', $types, null, ['class' => 'form-control'])!!}
         </div>
 

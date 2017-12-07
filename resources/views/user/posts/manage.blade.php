@@ -30,8 +30,9 @@
                         @if($post->is_shown == 0)
                             <br><button class="btn disabled btn-danger col-sm-6" style="width: 15em;">This post is set hidden by admin</button>
                         @elseif($post->requestedBy != NULL)
-                            <br><button class="btn disabled btn-warning col-sm-6" style="width: 15em;">This item is requested by<br>another user ( {{ App\User::find($post->requestedBy)->name }} )</button>
+                            <br><button class="btn disabled btn-warning col-sm-6" style="width: 30em;">This item is requested by<br>another user ( {{ App\User::find($post->requestedBy)->name }}<br>Email address: {{ App\User::find($post->requestedBy)->email }} )</button>
                         @else
+                            <br>
                             {!! Form::open(['method' => 'GET', 'action' => ['PostController@edit', $post->id]]) !!}
                             {!! Form::submit('Edit this post', ['class' => 'btn btn-primary btn-block col-sm-6', 'style' => 'width: 10em'])!!}
                             {!! Form::close() !!}

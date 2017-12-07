@@ -87,6 +87,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        if ($post->user_id != Auth::User()->id) {
+            abort(401);
+        }
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
         return view('user.posts.edit',compact('post','majors','types'));
@@ -102,6 +105,9 @@ class PostController extends Controller
     public function update(PostRequest $request, $id)
     {
         $post = Post::findOrFail($id);
+        if ($post->user_id != Auth::User()->id) {
+            abort(401);
+        }
         $input = $request->all();
         if ($up_file = $request->file('file_id')) {
             $name = time() . $up_file->getClientOriginalName();

@@ -41,12 +41,6 @@
                 top: 18px;
             }
 
-            .top-left {
-                position: absolute;
-                left: 10px;
-                top: 18px;
-            }
-
             .content {
                 text-align: center;
             }
@@ -79,8 +73,9 @@
                 font-size:25px;
             }
             .team {
-                font-size:18px;
+                font-size:20px;
             }
+
         </style>
     </head>
     <body>
@@ -90,6 +85,7 @@
                     @if (Auth::check())
                         <a href="{{ url('/intro') }}">Intro</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         @if (Auth::User()->isAdmin())
                             <a href="{{ url('/admin') }}">Dashboard</a>
                         @else
@@ -98,14 +94,10 @@
                     @else
                         <a href="{{ url('/intro') }}">Intro</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
-
-
                     @endif
-                </div>
-                <div class="top-left title">
-                    <a href="{{ url('/') }}">RPI NOTE EXCHANGE</a>
                 </div>
             @endif
 

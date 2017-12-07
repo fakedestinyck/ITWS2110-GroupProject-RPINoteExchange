@@ -87,6 +87,7 @@
                     @if (Auth::check())
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         @if (Auth::User()->isAdmin())
                             <a href="{{ url('/admin') }}">Dashboard</a>
                         @else
@@ -95,20 +96,16 @@
                     @else
                         <a href="{{ url('/aboutus') }}">About Us</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
-
-
                     @endif
-                </div>
-                <div class="top-left title">
-                    <a href="{{ url('/') }}">RPI NOTE EXCHANGE</a>
                 </div>
             @endif
 
             <div class="content">
                 <h2 class="intro">Intro</h2>
-            <p class="info">The goal of RPI Note Exchange is to serve as an academic aid for students to have open access to class notes and information whenever needed</p>
+            <p class="info">The goal of RPI Note Exchange is to provide RPI students access to a system for easy sharing, exchanging, and requesting notes, books, or other academic resources</p>
             </div>
         <div>
     </body>

@@ -75,6 +75,7 @@
             .team {
                 font-size:20px;
             }
+
         </style>
     </head>
     <body>
@@ -82,18 +83,18 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/intro') }}">Intro</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         @if (Auth::User()->isAdmin())
                             <a href="{{ url('/admin') }}">Dashboard</a>
                         @else
                             <a href="{{ url('/user') }}">Dashboard</a>
                         @endif
                     @else
-                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/intro') }}">Intro</a>
                         <a href="https://github.com/fakedestinyck/ITWS2110-GroupProject-RPINoteExchange">GitHub Page</a>
+                        <a href="{{ url('/') }}">Home</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
                     @endif

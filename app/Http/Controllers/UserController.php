@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\File;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\EditUserRequest;
 use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -15,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::User();
         return view('user.profile.index', compact('user'));//
     }
 
@@ -57,9 +59,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $user = User::findOrFail($id);
+        $user = Auth::User();
         return view('user.profile.edit', compact('user'));//
     }
 
@@ -70,11 +72,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(EditUserRequest $request)
     {
-        $user = User::findOrFail($id);
+        $user = Auth::User();
         $user->update($request->all());
-        return redirect('/user');
+        return redirect('/user/profile');
     }
 
     /**

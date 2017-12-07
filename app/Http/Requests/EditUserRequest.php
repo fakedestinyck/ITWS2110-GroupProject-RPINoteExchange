@@ -32,7 +32,6 @@ class EditUserRequest extends FormRequest
             'rin' => 'required|digits:9|unique:users,rin,' . $id . ',id',
             'name' => 'required|max:255|unique:users,name,' . $id . ',id',
             'email' => 'required|email|max:255|unique:users,email,' . $id . ',id',
-            'role_id' => 'required'
         ];
     }
 }

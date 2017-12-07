@@ -104,7 +104,7 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Manage My Profile</a>
+                        <a href="{{ route('user.profile.index') }}"><i class="fa fa-wrench fa-fw"></i> Manage My Profile</a>
                     </li>
 
                     <li>

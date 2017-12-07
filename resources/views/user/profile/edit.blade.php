@@ -5,33 +5,33 @@
 @section('h1_title','Edit Profile')
 
 @section('content')
-    <div class="col-sm-9 pull-right">
-        <div>
-            <p>First Name: {{ $users->fname }}</p>
-            <h4><input type="text" name="fname"></h4>
+    <div class="col-sm-12">
+        @include('includes.form_error')
+            {!! Form::model($user,['method'=> 'PATCH', 'action' => ['UserController@update',$user->id], 'files' => true]) !!}
+            {!! Form::hidden('user_id', $user->id) !!}
+            <div>
 
-            <p>Last Name: {{ $users->lname }}</p>
-            <h4><input type="text" name="lname"><br></h4>
+                <div class = "form-group">
+                    {!! Form::label('name', 'Name:')!!}
+                    {!! Form::text('name', null, ['class' => 'form-control'])!!}
+                </div>
 
-            <p>RIN: {{ $users->rin }}</p>
-            <h4><input type="text" name="rin"><br></h4>
+                <div class = "form-group">
+                    {!! Form::label('rin', 'RIN:')!!}
+                    {!! Form::text('rin', null, ['class' => 'form-control'])!!}
+                </div>
 
-            <p>Email: {{ $users->email }}</p>
-            <h4><input type="text" name="email"><br></h4>
+                <div class = "form-group">
+                    {!! Form::label('email', 'Email:')!!}
+                    {!! Form::email('email', null, ['class' => 'form-control'])!!}
+                </div>
 
-            <p>Password: {{ $users->password }}</p>
-            <h4><input type="text" name="pw"><br></h4>
+                <div class = "form-group">
+                    {!! Form::submit('Confirm', ['class' => 'btn btn-primary col-sm-6', 'style' => 'width: 6em'])!!}
+                </div>
 
-            {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
-
-            <div class = "form-group">
-                {!! Form::submit('Delete this post', ['class' => 'btn btn-danger btn-block col-sm-6', 'style' => 'width: 10em'])!!}
+                {!! Form::close() !!}
             </div>
-
-            {!! Form::close() !!}
-
-            <p><br><br><br></p>
-        </div>
-        {{ $posts->links() }}
     </div>
 @endsection
+

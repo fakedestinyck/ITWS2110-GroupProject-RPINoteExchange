@@ -58,5 +58,8 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
         })->name('posts.hide');
 
         Route::patch('/posts', 'PostController@filter');
+        Route::get('/profile','UserController@index')->name('user.profile.index');
+        Route::get('/profile/edit','UserController@edit')->name('user.profile.edit');
+        Route::patch('/profile/edit/update','UserController@update')->name('user.profile.update');
     });
 });

@@ -88,7 +88,19 @@ Requires Apache, MySQL, PHP5
     ```
     php artisan key:generate
     ```
+    
     
+11. Manually create:
+* at least three majors in `majors` database.
+* `Administrator`, `User`, `BlockedUser` in `roles` database.
+* `Books`, `Notes`, `Ideas` in `types` database.
+
+12. Generate database seeds randomly:
+    ```
+    php artisan db:seed
+    ```
+
+
 ### Done!
     
 Open your browser, go to `http://[YOUR_SERVER_NAME]`

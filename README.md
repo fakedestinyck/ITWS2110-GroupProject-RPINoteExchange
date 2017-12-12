@@ -79,9 +79,7 @@ Requires Apache, MySQL, PHP5
     
         Create a new database and name it `[YOUR_DATABASE_NAME]`.
     
-7. Open the project
-
-8. Open .env file, modify these lines like:
+7. Open .env file, modify these lines like:
     ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -105,27 +103,31 @@ Requires Apache, MySQL, PHP5
     PUSHER_APP_CLUSTER=[YOUR_PUSHER_APP_CLUSTER]
     ```
 
-9. make migration(in order to create table automatically):
+8. make migration(in order to create table automatically):
     ```
     php artisan migrate
     ```
 
-10. Generate a key:
+9. Generate a key:
     ```
     php artisan key:generate
     ```
     
     
-11. Manually create:
+10. Manually create:
 * at least three majors in `majors` database.
 * `Administrator`, `User`, `BlockedUser` in `roles` database.
 * `Books`, `Notes`, `Ideas` in `types` database.
 
-12. Generate database seeds randomly:
+11. Generate database seeds randomly:
     ```
     php artisan db:seed
     ```
 
+12. Give the `public/files` folder `777` permission.
+    ```
+    chmod -R 777 public/files/
+    ```
 
 ### Done!
     

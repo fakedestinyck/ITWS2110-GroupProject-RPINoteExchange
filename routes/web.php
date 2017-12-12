@@ -42,15 +42,14 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
 Route::group(['middleware' => ['auth','notBlocked']], function(){
     Route::prefix('user')->group(function () {
-        Route::get('/', function () {
-            return view('user.index');
-        });
+        Route::get('/', 'UserController@dashboard');
 
         Route::get('/posts/manage', 'PostController@manage')->name('posts.manage');
 
         Route::resource('posts', 'PostController', ['names' => [
             'index' => 'user.posts.index'
         ]]);
+        Route::patch('posts','PostController@index')->name('user.posts.index');
 
         Route::patch('/posts/{post}/hide', 'PostController@hide')->name('posts.hide');
         Route::get('/posts/{post}/hide', function () {
@@ -62,7 +61,6 @@ Route::group(['middleware' => ['auth','notBlocked']], function(){
             return abort(405);
         })->name('posts.askFor');
 
-        Route::patch('/posts', 'PostController@filter');
         Route::get('/profile','UserController@index')->name('user.profile.index');
         Route::get('/profile/edit','UserController@edit')->name('user.profile.edit');
         Route::patch('/profile/edit/update','UserController@update')->name('user.profile.update');

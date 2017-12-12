@@ -5,7 +5,7 @@
 @section('h1_title','My Posts')
 
 @section('content')
-    <div class="col-sm-9 pull-right">
+    <div class="col-sm-10 pull-right">
         <a href="{{ route('posts.create') }}" class=" btn btn-success col-sm-6" style="width: 10em;">Create New Post</a><br><br>
         <div>
             @if($posts)
@@ -28,13 +28,13 @@
 
                     <div class = "form-group">
                         @if($post->is_shown == 0)
-                            <br><button class="btn disabled btn-danger col-sm-6" style="width: 15em;">This post is set hidden by admin</button>
+                            <br><button class="btn disabled btn-danger col-sm-6">This post is deleted either by you or by admin</button>
                         @elseif($post->requestedBy != NULL)
-                            <br><button class="btn disabled btn-warning col-sm-6" style="width: 30em;">This item is requested by<br>another user ( {{ App\User::find($post->requestedBy)->name }}<br>Email address: {{ App\User::find($post->requestedBy)->email }} )</button>
+                            <br><button class="btn disabled btn-warning col-sm-6">This item is requested by<br>another user ( {{ App\User::find($post->requestedBy)->name }}<br>Email address: {{ App\User::find($post->requestedBy)->email }} )</button>
                         @else
                             <br>
                             {!! Form::open(['method' => 'GET', 'action' => ['PostController@edit', $post->id]]) !!}
-                            {!! Form::submit('Edit this post', ['class' => 'btn btn-primary btn-block col-sm-6', 'style' => 'width: 10em'])!!}
+                            {!! Form::submit('Edit this post', ['class' => 'btn btn-primary col-sm-6'])!!}
                             {!! Form::close() !!}
                         @endif
 

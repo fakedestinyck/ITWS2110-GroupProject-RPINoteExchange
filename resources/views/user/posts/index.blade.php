@@ -5,9 +5,9 @@
 @section('h1_title','All Posts')
 
 @section('content')
-    <div class="col-sm-2">
+    <div class="col-sm-2" style="background-color: lightgoldenrodyellow; border: yellow solid 3px;">
         <h3 style="text-align: center;">Filter</h3>
-        {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@filter']]) !!}
+        {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@index']]) !!}
         @if($majors)
         {!! Form::select('courses', $majors, null, ['class' => 'form-control'])!!}
         @endif
@@ -22,7 +22,7 @@
           {!! Form::submit('Update', ['class' => 'btn btn-primary btn-block col-sm-6'])!!}
           {!! Form::close() !!}
         </div>
-
+        <p><br><br></p>
     </div>
 
     <div class="col-sm-9 pull-right">
@@ -44,15 +44,20 @@
                         checked>
                     @endif
                     Paid
+                    @if($post->file_id)
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ config('app.url').'/'.$files->find($post->file_id)->file }}">Click to see files</a>
+                    @endif
+                    @if($post->user_id == Auth::User()->id)
+                        <br><br><button class="btn disabled btn-danger col-sm-4">This post is created by you</button>
+                    @else
+                        {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@askFor', $post->id]]) !!}
 
-                    {{--TODO: view file option--}}
-                    {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@askFor', $post->id]]) !!}
+                        <div class = "form-group">
+                            {!! Form::submit('Ask for this item', ['class' => 'btn btn-primary col-sm-4'])!!}
+                        </div>
 
-                    <div class = "form-group">
-                        {!! Form::submit('Ask for this item', ['class' => 'btn btn-primary btn-block col-sm-6', 'style' => 'width: 10em'])!!}
-                    </div>
-
-                    {!! Form::close() !!}
+                        {!! Form::close() !!}
+                    @endif
 
                     <p><br><br><br></p>
                 @endforeach

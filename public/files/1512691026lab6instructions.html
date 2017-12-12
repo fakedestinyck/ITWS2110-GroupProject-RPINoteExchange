@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+   <head>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Web Sys I - Fall 2014 - Lab #6 - Front-end Optimization</title>
+      <style type="text/css">
+
+/*I have included the css here for convenience only*/
+
+         body {
+            font-family: helvetica;
+            width: 900px;
+         }
+
+         #mainBlock{
+            width:700px;
+            background-color: #fee;
+            padding:30px;
+            float: right;
+            clear: both;
+            overflow: hidden;
+         } 
+         
+         .sectiondetail {
+            list-style-type: none;
+         }
+
+         .noteThis {
+            color:red;
+            font-size:110%;
+         }
+         .minor {
+            line-height: 90% !important;
+            font-size:90% !important;
+            border-style: solid;
+            border-color: red;
+            padding:5px;
+            text-align: left;
+            width: 80%;
+         }
+         strong {
+            font-size: 105%;
+         }
+
+         em {
+            color:green;
+         }
+      
+         table {
+            display: inline-table;
+         }
+
+         .rubcat {
+            -webkit-column-width: 100px;
+            -moz-column-width: 100px;
+            column-width: 100px;
+         }
+
+         .rubpts {
+            -webkit-column-width: 40px;
+            -moz-column-width: 40px;
+            column-width: 40px;
+         }
+
+
+
+      </style>
+   </head>
+   <body>
+      <div id="mainBlock">
+         <h1>Lab #6 - Front-end Optimization</h1>
+         <ul id="sections">
+            <li class="sectionheader">
+               Part 0
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     Create a new folder for Lab 6 in your websys folder, and confirm that it is being served by Apache. At this point, or very soon, you should have at least 1 virtual server pointing to an index.html page in your websys folder, being served as a virtual host on your web server.
+                  </li>
+                  <li class="subsectiondetail">
+                     If you have an RCS or other website which you own/manage, you may create the websys folder there and serve the pages from that server - it is your choice.  If you choose to do this, please also include the URL to the site in the comments section of the LMS submission.
+                  </li>
+                  <li class="subsectiondetail">
+                     Ensure that you have a browser plugin capable of debugging JavaScript (you should be familiar with setting breakpoints and watch variables from your previous CS/IT courses). If you are stuck with this, Chrome Developer Tools in Chrome is an excellent tool to learn with.
+                  </li>
+                  <li class="subsectiondetail">
+                     For this lab, you will be using <a href="lab6start.html">an existing HTML document</a>.
+                  </li>
+                  <li class="subsectiondetail">
+                     Save the document as lab6.html in your lab6 folder.
+                  </li>
+               </ul>
+            </li>
+            <li class="sectionheader">
+               Part 1
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     The JavaScript on this page will dynamically generate a very large number of list elements, with an event handler to hide each them when clicked on.
+                  </li>
+                  <li class="subsectiondetail">
+                     Instead of binding an event handler to each individual element, recall that event delegation can be used instead of traditional event handling. By binding an event to the parent element, we can listen on all child elements as the event bubbles back up to the parent.
+                  </li>
+               </ul>
+            </li>
+            <li class="sectionheader">
+               Part 2
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     Using your knowledge of front-end optimization, find at least four other different kinds of performance improvements that could be made using HTML, CSS, JavaScript and jQuery (applying the same technique multiple times doesn't count, nor does the use of event delegation from Part 1). Document your improvements as you make them.              
+                  </li>
+               </ul>
+            </li>
+            <li class="sectionheader">
+               Receiving credit
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     Be prepared to explain how the optimizations you made will improve the front-end experience, whether by decreasing file size, reducing memory footprint, or improving rendering/execution time.
+                  </li>
+                  <li class="subsectiondetail">
+                     Using the waterfall request view and a JavaScript profiler like the ones bundled with Firebug (Net tab, Console tab &gt; Profile) and Chrome Dev Tools (Network tab, Timeline tab &gt; Record [at the bottom toolbar]) is encouraged!
+                  </li>
+                  <li>
+                       As normal, there should be a <strong>READ.me</strong> file included which explains your observations/comments/assumptions from this lab.
+                  </li>
+               </ul>
+            </li>
+            <li class="sectionheader">
+               Submission
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     <strong>Zip</strong> up your lab 6 folder ...
+                  </li>
+                  <li class="subsectiondetail">
+                     Rename it to <strong>websyslab6-<em>yourname</em>-<em>yourRCSID</em>.zip</strong>
+                  </li>
+                  <li class="subsectiondetail">
+                     <strong>Submit</strong> it to LMS
+                  </li>
+               </ul>
+            </li>
+            <li class="sectionheader">
+               Rubric/Grading
+            </li>
+            <li class="sectiondetail">
+               <ul class="subsections">
+                  <li class="subsectiondetail">
+                     <table>
+                        <tr>
+                           <td class="rubcat">Part 1</td>
+                           <td class="rubpts">10 Points</td>
+                        </tr>
+                     </table>                   
+                  </li>
+                  <li class="subsectiondetail">
+                     <table>
+                        <tr>
+                           <td class="rubcat">Part 2</td>
+                           <td class="rubpts">10 Points</td>
+                        </tr>
+                     </table>  
+                  </li>
+                  <li class="subsectiondetail">
+                     <table>
+                        <tr>
+                           <td class="rubcat">Readme</td>
+                           <td class="rubpts">10 Points</td>
+                        </tr>
+                     </table>                   
+                  </li>
+                  <li class="subsectiondetail">
+                     <table>
+                        <tr>
+                           <td class="rubcat">Creativity</td>
+                           <td class="rubpts">10 Points</td>
+                        </tr>
+                     </table>                   
+                  </li>
+               </ul>
+            </li>           
+         </ul>
+       </div>
+    </body>
+</html>

@@ -17,18 +17,41 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::where('is_shown','1')->where('requestedBy', NULL)->paginate(10);
+        $postQuery = Post::where('is_shown','1')->where('requestedBy', NULL);
+
+        if ($request->has('courses')) {
+            $postQuery->where('major_id',$request->courses);
+        }
+        if ($request->has('type')) {
+            $postQuery->where('material_type_id', $request->type);
+        }
+        if ($request->has('category')) {
+            $postQuery->where('share_or_ask',$request->category);
+        }
+        if ($request->has('paid')) {
+            $postQuery->where('free_or_paid',$request->paid);
+        }
+        $posts = $postQuery->paginate(10)->appends([
+            'courses' => $request->courses,
+            'type' => $request->type,
+            'category' => $request->category,
+            'paid' => $request->paid
+        ]);
+
         $users = User::all();
         $majors = Major::pluck('name','id')->all();
         $types = Type::pluck('name','id')->all();
+        $files = File::all();
         if (Auth::user()->isAdmin()) {
             return view('admin.posts.index',compact('posts','users','majors','types'));
         } else {
-            return view('user.posts.index',compact('posts','users','majors','types'));
+            return view('user.posts.index',compact('posts','users','majors','types','files'));
         }
     }
 
@@ -156,23 +179,9 @@ class PostController extends Controller
         }
 
     }
-
-    public function filter(Request $request)
-    {
-      $posts = Post::where('is_shown','1')->where('major_id',$request->courses)->where('material_type_id', $request->type)->where('share_or_ask',$request->category)->where('free_or_paid',$request->paid)->where('requestedBy', NULL)->paginate(10);
-      $users = User::all();
-      $majors = Major::pluck('name','id')->all();
-      $types = Type::pluck('name','id')->all();
-      if (Auth::user()->isAdmin()) {
-          return view('admin.posts.index',compact('posts','users','majors','types'));
-      } else {
-          return view('user.posts.index',compact('posts','users','majors','types'));
-      }
-      return abort(404);
-    }
     
     public function manage() {
-        $posts = Post::where('is_shown','1')->where('user_id' , Auth::User()->id)->paginate(10);
+        $posts = Post::where('user_id' , Auth::User()->id)->paginate(10);
         $types = Type::pluck('name','id')->all();
         return view('user.posts.manage',compact('posts','types'));
     }

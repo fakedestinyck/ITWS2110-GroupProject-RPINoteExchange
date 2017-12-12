@@ -46,13 +46,15 @@
         </div>
 
         <div class = "form-group">
-            {!! Form::submit('Submit', ['class' => 'btn btn-primary'])!!}
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary col-sm-2'])!!}
         </div>
+
+        {!! Form::close() !!}
 
         {!! Form::open(['method' => 'PATCH', 'action' => ['PostController@hide', $post->id]]) !!}
 
         <div class = "form-group">
-            {!! Form::submit('Delete this post', ['class' => 'btn btn-danger btn-block col-sm-6', 'style' => 'width: 10em'])!!}
+            {!! Form::submit('Delete this post', ['class' => 'btn btn-danger col-sm-2 pull-right'])!!}
         </div>
 
         {!! Form::close() !!}

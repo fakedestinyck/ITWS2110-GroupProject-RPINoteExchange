@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <script>
+        function myFunction() {
+            alert("Oh you really deserve it LOL");
+        }
+    </script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -55,7 +60,7 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="#" onclick="myFunction();">
                                     Forgot Your Password?
                                 </a>
                             </div>

@@ -65,8 +65,6 @@
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><i class="fa fa-user fa-fw"></i> My Account</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    </li>
                     <li class="divider"></li>
                     <li><a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -125,25 +123,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Announcement<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="/announce">View All Announcements</a>
-                            </li>
-
-                            <li>
-                                <a href="/announce/create">Publish a New Announcement</a>
-                            </li>
-
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-
-
-
-
 
                 </ul>
 

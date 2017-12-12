@@ -3,6 +3,18 @@ The group project repo for ITWS2110 Fall2017 group 5
 
 
 **This project uses _Laravel 5.4_**
+
+**Route file is located under `routes` folder.**
+
+**All front-end (html,JS) codes are under `resources/views`.**
+
+**All back-end (php) codes are under `app/Http`.**
+
+**Database structure can be viewed in files under `database/migrations`.**
+
+**Project proposal [here](Proposal.md).**
+
+**Presentation slides link: [here](RPI%20Note%20Exchange.pptx)**
 ## Installation Guide
 ### Prerequisite
 
@@ -78,6 +90,20 @@ Requires Apache, MySQL, PHP5
     DB_USERNAME=[YOUR_USERNAME]
     DB_PASSWORD=[YOUR_PASSWORD]
     ```
+    
+    and
+    
+    ```
+    APP_URL=[YOUR_URL]
+    ```
+    
+    If you want to enable push service, go to `pusher.com`, create an account and an application, then modify:
+    ```
+    PUSHER_APP_ID=[YOUR_PUSHER_APP_ID]
+    PUSHER_APP_KEY=[YOUR_PUSHER_APP_KEY]
+    PUSHER_APP_SECRET=[YOUR_PUSHER_APP_SECRET]
+    PUSHER_APP_CLUSTER=[YOUR_PUSHER_APP_CLUSTER]
+    ```
 
 9. make migration(in order to create table automatically):
     ```
@@ -97,8 +123,8 @@ Requires Apache, MySQL, PHP5
 
 12. Generate database seeds randomly:
     ```
-    php artisan db:seed
-    ```
+    php artisan db:seed
+    ```
 
 
 ### Done!
@@ -113,7 +139,10 @@ Open your browser, go to `http://[YOUR_SERVER_NAME]`
     chmod -R 777 storage/
     chmod -R 777 bootstrap/cache
     ```
-
+* Route file is located under `routes` folder.
+* All front-end (html,JS) codes are under `resources/views`.
+* All back-end (php) codes are under `app/Http`.
+* Database structure can be viewed in files under `database/migrations`.
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](LICENSE).
